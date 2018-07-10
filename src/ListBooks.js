@@ -1,35 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './App.css'
+import BookDisplay from './BookDisplay'
 
 class ListBooks extends Component {
-    
-
-    
-    displayBook(book) {
-        
-        return (
-            <li key={book.industryIdentifiers[0].identifier} >
-                <div className="book">
-                    <div className="book-top">
-                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
-                        <div className="book-shelf-changer">
-                            <select>
-                                <option value="move" disabled>Move to...</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'currentlyReading')} value="currentlyReading">Currently Reading</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'wantToRead')}  value="wantToRead">Want to Read</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'read')}  value="read">Read</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'none')}  value="none">None</option>
-                            </select>
-                        </div>
-                    </div>
-                <div className="book-title">{book.title}</div>
-                <div className="book-authors">{book.authors}</div>
-                </div>
-            </li>
-        )
-        
-    }
     
     
     render() {
@@ -50,7 +23,11 @@ class ListBooks extends Component {
                       <div className="bookshelf-books">
                         <ol className="books-grid">
                         
-                            {booksList.map(book => book.shelf === 'currentlyReading' && (this.displayBook(book)))}
+                            {booksList.map(book => book.shelf === 'currentlyReading' && (
+                                <BookDisplay
+                                    bookToDisplay={book}
+                                />
+                            ))}
                         
                         </ol>
                       </div>
@@ -60,7 +37,11 @@ class ListBooks extends Component {
                       <div className="bookshelf-books">
                         <ol className="books-grid">
 
-                            {booksList.map(book => book.shelf === 'wantToRead' && (this.displayBook(book)))}
+                            {booksList.map(book => book.shelf === 'wantToRead' && (
+                                <BookDisplay
+                                    bookToDisplay={book}
+                                />
+                            ))}
                         
                         </ol>
                       </div>
@@ -70,7 +51,11 @@ class ListBooks extends Component {
                       <div className="bookshelf-books">
                         <ol className="books-grid">
                         
-                            {booksList.map(book => book.shelf === 'read' && (this.displayBook(book)))}
+                            {booksList.map(book => book.shelf === 'read' && (
+                                <BookDisplay
+                                    bookToDisplay={book}
+                                />
+                            ))}
                        
                         </ol>
                       </div>

@@ -18,7 +18,6 @@ class BooksApp extends Component {
     }
     
     updateBook = (book, shelf) => {
-        
 
         BooksAPI.update(book, shelf).then( () => {
             
