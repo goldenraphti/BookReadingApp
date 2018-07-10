@@ -23,7 +23,6 @@ class BooksApp extends Component {
         BooksAPI.update(book, shelf).then( () => {
             
             book.shelf= shelf
-            console.log(this.state)
             this.setState({})
 
         })

@@ -19,7 +19,7 @@ class ListBooks extends Component {
                                 <option onClick={ () => this.props.onUpdateBook(book, 'currentlyReading')} value="currentlyReading">Currently Reading</option>
                                 <option onClick={ () => this.props.onUpdateBook(book, 'wantToRead')}  value="wantToRead">Want to Read</option>
                                 <option onClick={ () => this.props.onUpdateBook(book, 'read')}  value="read">Read</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, '')}  value="none">None</option>
+                                <option onClick={ () => this.props.onUpdateBook(book, 'none')}  value="none">None</option>
                             </select>
                         </div>
                     </div>
