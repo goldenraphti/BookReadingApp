@@ -5,7 +5,7 @@ import ListBooks from './ListBooks'
 import SearchPage from './SearchPage'
 import './App.css'
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
     
     state= {
         books:[],
@@ -18,7 +18,16 @@ class BooksApp extends React.Component {
     }
     
     updateBook = (book, shelf) => {
-        BooksAPI.update(book, shelf)
+        
+
+        BooksAPI.update(book, shelf).then( () => {
+            
+            book.shelf= shelf
+            console.log(this.state)
+            this.setState({})
+
+        })
+        
     }
 
     render() {
@@ -41,3 +50,6 @@ class BooksApp extends React.Component {
 }
 
 export default BooksApp
+
+
+

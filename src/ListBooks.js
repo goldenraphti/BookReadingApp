@@ -4,21 +4,22 @@ import './App.css'
 
 class ListBooks extends Component {
     
+
+    
     displayBook(book) {
         
         return (
             <li key={book.industryIdentifiers[0].identifier} >
-               {console.log(book)}
                 <div className="book">
                     <div className="book-top">
                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                         <div className="book-shelf-changer">
                             <select>
-                            <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to Read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
+                                <option value="move" disabled>Move to...</option>
+                                <option onClick={ () => this.props.onUpdateBook(book, 'currentlyReading')} value="currentlyReading">Currently Reading</option>
+                                <option onClick={ () => this.props.onUpdateBook(book, 'wantToRead')}  value="wantToRead">Want to Read</option>
+                                <option onClick={ () => this.props.onUpdateBook(book, 'read')}  value="read">Read</option>
+                                <option onClick={ () => this.props.onUpdateBook(book, '')}  value="none">None</option>
                             </select>
                         </div>
                     </div>
