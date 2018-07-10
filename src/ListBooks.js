@@ -7,7 +7,7 @@ class ListBooks extends Component {
     displayBook(book) {
         
         return (
-            <li key={book.industryIdentifiers.identifier} >
+            <li key={book.industryIdentifiers[0].identifier} >
                {console.log(book)}
                 <div className="book">
                     <div className="book-top">
