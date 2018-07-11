@@ -40,7 +40,9 @@ class BooksApp extends Component {
                 )} />
 
                 <Route path="/search" render={() => (
-                    <SearchPage />
+                    <SearchPage
+                        onUpdateBook={this.updateBook}
+                     />
                 )} />
           </div>
         )

@@ -47,6 +47,7 @@ class SearchPage extends Component {
                         {booksList.map(book => (
                             <BookDisplay
                                 bookToDisplay={book}
+                                onUpdateBook={this.props.onUpdateBook}
                             />
                         ))}
 

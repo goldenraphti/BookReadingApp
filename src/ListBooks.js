@@ -26,6 +26,7 @@ class ListBooks extends Component {
                             {booksList.map(book => book.shelf === 'currentlyReading' && (
                                 <BookDisplay
                                     bookToDisplay={book}
+                                    onUpdateBook={this.props.onUpdateBook}
                                 />
                             ))}
                         
@@ -40,6 +41,7 @@ class ListBooks extends Component {
                             {booksList.map(book => book.shelf === 'wantToRead' && (
                                 <BookDisplay
                                     bookToDisplay={book}
+                                    onUpdateBook={this.props.onUpdateBook}
                                 />
                             ))}
                         
@@ -54,6 +56,7 @@ class ListBooks extends Component {
                             {booksList.map(book => book.shelf === 'read' && (
                                 <BookDisplay
                                     bookToDisplay={book}
+                                    onUpdateBook={this.props.onUpdateBook}
                                 />
                             ))}
                        
