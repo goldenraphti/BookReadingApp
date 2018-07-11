@@ -16,6 +16,7 @@ class BookDisplay extends Component {
         }
         
         const authors=  book.authors ? book.authors : 'Authors not mentionned';
+
         
         return (
             <li key={book.id} >
@@ -23,12 +24,12 @@ class BookDisplay extends Component {
                     <div className="book-top">
                         <div className="book-cover" style={bookCoverStyle}></div>
                         <div className="book-shelf-changer">
-                            <select>
+                            <select onChange={e => this.props.onUpdateBook(book, e.target.value)} value={book.shelf} >
                                 <option value="move" disabled>Move to...</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'currentlyReading')} value="currentlyReading">Currently Reading</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'wantToRead')}  value="wantToRead">Want to Read</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'read')}  value="read">Read</option>
-                                <option onClick={ () => this.props.onUpdateBook(book, 'none')}  value="none">None</option>
+                                <option value="currentlyReading" >Currently Reading</option>
+                                <option value="wantToRead">Want to Read</option>
+                                <option value="read">Read</option>
+                                <option value="none">None</option>
                             </select>
                         </div>
                     </div>

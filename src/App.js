@@ -17,12 +17,12 @@ class BooksApp extends Component {
             })
     }
     
-    updateBook = (book, shelf) => {
+    updateBook = (book, newShelf) => {
 
-        BooksAPI.update(book, shelf).then( () => {
-            
-            book.shelf= shelf
-            this.setState({})
+        BooksAPI.update(book, newShelf).then( () => {
+            const shelf = book.shelf;
+            book.shelf= newShelf;
+            this.setState({shelf:newShelf})
 
         })
         
@@ -42,6 +42,7 @@ class BooksApp extends Component {
                 <Route path="/search" render={() => (
                     <SearchPage
                         onUpdateBook={this.updateBook}
+                        books={this.state.books}
                      />
                 )} />
           </div>
