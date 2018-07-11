@@ -71,6 +71,7 @@ class SearchPage extends Component {
                         <ol className="books-grid">
                             {booksList.map(book => (
                             <BookDisplay
+                                key={book.id}
                                 bookToDisplay={book}
                                 onUpdateBook={this.props.onUpdateBook}
                             />
