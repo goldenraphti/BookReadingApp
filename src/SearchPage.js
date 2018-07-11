@@ -18,13 +18,11 @@ class SearchPage extends Component {
         const match = new RegExp(escapeRegExp(query), 'i')
   
         if (query === '') {
-            console.log('query is empty')
             this.setState({queryCondition:'empty'})
         } else if (match.test(this.state.searchTerms) ) {
             this.updateQuery(query)
             this.setState({queryCondition:'validSearch'})
         } else {
-            console.log('query not matching any allowed topic')
             this.setState({queryCondition:'error'})
             
         }
@@ -32,8 +30,6 @@ class SearchPage extends Component {
 
 
     updateQuery = (query) => {
-        
-        console.log(query);
         
         BooksAPI.search(query).then(books => {
             if(books) {

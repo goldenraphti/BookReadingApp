@@ -15,6 +15,8 @@ class BookDisplay extends Component {
             backgroundImage: `url(${thumbnail})`
         }
         
+        const authors=  book.authors ? book.authors : 'Authors not mentionned';
+        
         return (
             <li key={book.id} >
                 <div className="book">
@@ -31,7 +33,7 @@ class BookDisplay extends Component {
                         </div>
                     </div>
                 <div className="book-title">{book.title}</div>
-                <div className="book-authors">{book.authors}</div>
+                <div className="book-authors">{authors}</div>
                 </div>
             </li>
         )
