@@ -21,7 +21,7 @@ At this point of the development only certain keywords will provide an answer. I
 
 This app can be loaded by starting the server
 + Open a terminal in the root folder
-+ type 'npm start'
++ type 'npm install' and then 'npm start'
 + go to 'localhost:3000' in your browser
 
 ## Technical Instructions for Developers
