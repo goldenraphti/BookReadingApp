@@ -24,7 +24,7 @@ class BookDisplay extends Component {
                     <div className="book-top">
                         <div className="book-cover" style={bookCoverStyle}></div>
                         <div className="book-shelf-changer">
-                            <select onChange={e => this.props.onUpdateBook(book, e.target.value)} value={book.shelf} >
+                            <select onChange={e => this.props.onUpdateBook(book, e.target.value)} value={book.shelf}  aria-label="Modify reading category of the book?" id="reading-category-select" name="reading-category">
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading" >Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
