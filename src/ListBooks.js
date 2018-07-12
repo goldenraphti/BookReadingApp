@@ -2,14 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookDisplay from './BookDisplay'
 
-class ListBooks extends Component {
-    
-    
-    render() {
-        
-        const booksList = this.props.books;
-        
-        return (
+const ListBooks = (props) => {
+    const booksList = props.books;
+    return (
             
             <div className="list-books">
                 <div className="list-books-title">
@@ -27,7 +22,7 @@ class ListBooks extends Component {
                                 <BookDisplay
                                     key={book.id}
                                     bookToDisplay={book}
-                                    onUpdateBook={this.props.onUpdateBook}
+                                    onUpdateBook={props.onUpdateBook}
                                 />
                             ))}
                         
@@ -43,7 +38,7 @@ class ListBooks extends Component {
                                 <BookDisplay
                                     key={book.id}
                                     bookToDisplay={book}
-                                    onUpdateBook={this.props.onUpdateBook}
+                                    onUpdateBook={props.onUpdateBook}
                                 />
                             ))}
                         
@@ -59,7 +54,7 @@ class ListBooks extends Component {
                                 <BookDisplay
                                     key={book.id}
                                     bookToDisplay={book}
-                                    onUpdateBook={this.props.onUpdateBook}
+                                    onUpdateBook={props.onUpdateBook}
                                 />
                             ))}
                        
@@ -75,6 +70,5 @@ class ListBooks extends Component {
             
         )
     }
-}
 
 export default ListBooks;
