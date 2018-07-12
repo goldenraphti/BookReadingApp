@@ -59,7 +59,7 @@ class SearchPage extends Component {
                        <input
                            type='text'
                            placeholder='Search by title or author'
-                           onChange={ (event) => this.filterQuery(event.target.value) }    
+                           onChange={ (e) => this.filterQuery(e.target.value) }    
                        />
 
                     </div>
@@ -73,7 +73,7 @@ class SearchPage extends Component {
                             <BookDisplay
                                 key={book.id}
                                 bookToDisplay={book}
-                                onUpdateBook={this.props.onUpdateBook}
+                                onUpdateBook={this.props.onUpdateBook.bind(this)}
                             />
                             ))}
                         </ol> 

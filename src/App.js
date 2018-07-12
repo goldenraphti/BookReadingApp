@@ -12,20 +12,17 @@ class BooksApp extends Component {
     }
 
     componentDidMount() {
+        this.retrieveBooks();
+    }
+
+    retrieveBooks() {
         BooksAPI.getAll().then(books => {
                 this.setState({books:books});
             })
     }
     
     updateBook = (book, newShelf) => {
-
-        BooksAPI.update(book, newShelf).then( () => {
-            const shelf = book.shelf;
-            book.shelf= newShelf;
-            this.setState({shelf:newShelf})
-
-        })
-        
+        BooksAPI.update(book, newShelf).then( () => this.retrieveBooks() )
     }
 
     render() {
@@ -35,6 +32,7 @@ class BooksApp extends Component {
                  <Route exact  path="/" render={() => (
                     <ListBooks 
                         onUpdateBook={this.updateBook}
+                        retrieveBooks={this.retrieveBooks}
                         books={this.state.books}
                     />
                 )} />
@@ -42,6 +40,7 @@ class BooksApp extends Component {
                 <Route path="/search" render={() => (
                     <SearchPage
                         onUpdateBook={this.updateBook}
+                        retrieveBooks={this.retrieveBooks}
                         books={this.state.books}
                      />
                 )} />
