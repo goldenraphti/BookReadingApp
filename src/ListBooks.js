@@ -38,7 +38,7 @@ class ListBooks extends Component {
                       <h2 className="bookshelf-title">Want to Read</h2>
                       <div className="bookshelf-books">
                         <ol className="books-grid">
-
+                            {console.log(booksList)}
                             {booksList.map(book => book.shelf === 'wantToRead' && (
                                 <BookDisplay
                                     key={book.id}

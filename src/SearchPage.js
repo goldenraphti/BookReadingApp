@@ -31,11 +31,29 @@ class SearchPage extends Component {
 
     updateQuery = (query) => {
         
+        const savedBooks = this.props.books;
+        
         BooksAPI.search(query).then(books => {
             if(books) {
-                this.setState({ books }) 
+                // add a shelf property to searched books, and sets it to none by default
+                books.map( (book) => book.shelf = 'none')
+                
+                // import list of books already saved, map through them, and if they match a book already existing inside this search state, then update its shelf value
+                books.map( (book) => {
+                    savedBooks.map( b => {
+                    //    book.shelf = book.id === b.id ? b.shelf : 'none'
+                        book.id === b.id ? book.shelf = b.shelf : null;
+                    })
+                })
+                
+                this.setState({ books }) ;
+                console.log('inside after',books);
             }
         })
+        
+
+        // then retrieve books from our already saved books, and if they match the new book, update their shelf
+        
         this.setState({ query });
     }
     
@@ -73,7 +91,7 @@ class SearchPage extends Component {
                             <BookDisplay
                                 key={book.id}
                                 bookToDisplay={book}
-                                onUpdateBook={this.props.onUpdateBook.bind(this)}
+                                onUpdateBook={this.props.onUpdateBook}
                             />
                             ))}
                         </ol> 
